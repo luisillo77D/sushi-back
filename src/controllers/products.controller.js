@@ -5,7 +5,7 @@ export const getAllProducts = async (req, res) => {
     const products = await Product.find();
     res.json(products);
   } catch (error) {
-    res.status(500).json({ error: "Error al obtener los productos" });
+    res.status(500).json({ error: "Error al obtener los productos"+error });
   }
 };
 
@@ -17,7 +17,7 @@ export const getProductById = async (req, res) => {
     }
     res.json(product);
   } catch (error) {
-    res.status(500).json({ error: "Error al obtener el producto" });
+    res.status(500).json({ error: "Error al obtener el producto"+error });
   }
 };
 
@@ -30,7 +30,7 @@ export const getProductByCategory = async (req, res) => {
     }
     res.json(products);
   } catch (error) {
-    res.status(500).json({ error: "Error al obtener el producto" });
+    res.status(500).json({ error: "Error al obtener el producto category:"+error });
   }
 };
 
@@ -40,7 +40,7 @@ export const createProduct = async (req, res) => {
     await product.save();
     res.status(201).json(product);
   } catch (error) {
-    res.status(500).json({ error: "Error al crear el producto" });
+    res.status(500).json({ error: "Error al crear el producto"+error });
   }
 };
 
@@ -54,7 +54,7 @@ export const updateProduct = async (req, res) => {
     }
     res.json(product);
   } catch (error) {
-    res.status(500).json({ error: "Error al actualizar el producto" });
+    res.status(500).json({ error: "Error al actualizar el producto"+error });
   }
 };
 
@@ -66,6 +66,6 @@ export const deleteProduct = async (req, res) => {
     }
     res.json({ message: "Producto eliminado correctamente" });
   } catch (error) {
-    res.status(500).json({ error: "Error al eliminar el producto" });
+    res.status(500).json({ error: "Error al eliminar el producto"+error });
   }
 };
