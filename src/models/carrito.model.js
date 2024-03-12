@@ -7,7 +7,7 @@ const carritoSchema = new mongoose.Schema({
         required: true
     },
     items: [{
-        product: {
+        idproduct: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Product',
             required: true

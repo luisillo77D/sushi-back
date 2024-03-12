@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import { secret } from "../config.js";
 export const authRequired = (req, res, next) => {
   const { token } = req.cookies;
+  console.log(token);
 
   if (!token) return res.status(401).json({ message: "no token auth" });
 
@@ -9,6 +10,7 @@ export const authRequired = (req, res, next) => {
     if (err) return res.status(403).json({ message: "invalid token " });
 
     req.user=user
+    //console.log(user.id);
     next();
   });
 };

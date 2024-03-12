@@ -19,7 +19,7 @@ export const register = async (req, res) => {
     });
 
     const userSaved = await newUser.save();
-    const token = await createAccesToken({ id: userSaved._id, role: userSaved.role  });
+    const token = await createAccesToken({ id: userSaved._id});
 
     res.cookie("token", token);
     res.json({
@@ -42,9 +42,9 @@ export const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, userFound.password);
     if(!isMatch) return res.status(400).json({message:"incorrect password"})
     
-    const token = await createAccesToken({ id: userFound._id, role: userFound.role });
+    const token = await createAccesToken({ id: userFound._id});
 
-    res.cookie("token", token, { sameSite: 'none', secure: true });
+    res.cookie("token", token);
     res.json({
       id: userFound._id,
       username: userFound.username,
