@@ -1,7 +1,8 @@
 import app from "./app.js";
 import {connectdb} from './db.js';
 
-app.listen(3000);
+const PORT= process.env.PORT ?? 3000;
+app.listen(PORT);
 console.log("server on port 3000");
 
 connectdb();
