@@ -33,6 +33,7 @@ export const agregarProductoCarrito = async (req, res) => {
                 //si el producto no esta en el carrito
                 //agregar el producto al carrito
                 carrito.items.push({ idproduct, quantity });
+                carrito.total += quantity * product.price;
                 //guardar el carrito
                 await carrito.save();
                 //retornar el carrito

@@ -13,6 +13,6 @@ router.post('/agregar',authRequired,agregarProductoCarrito)
 router.post('/crear',authRequired,crearCarrito)
 router.post('/vaciar',authRequired,vaciarCarrito)
 router.get('/carrito',authRequired,obtenerCarrito)
-router.post('/pay',authRequired,pagarCarrito)
+router.post('/pay-car',authRequired,pagarCarrito)
 //exportar el router
 export default router
