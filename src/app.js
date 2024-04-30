@@ -4,6 +4,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import productsRoutes from "./routes/products.routes.js";
 import carritoRoutes from "./routes/carrito.routes.js";
+import comprasRoutes from "./routes/compras.routes.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -16,5 +17,6 @@ app.use(cookieParser());
 app.use("/api", authRoutes);
 app.use("/api", productsRoutes);
 app.use("/api", carritoRoutes);
+app.use("/api", comprasRoutes);
 
 export default app;

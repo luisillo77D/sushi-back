@@ -8,11 +8,11 @@ import { authRequired } from '../middleware/validateToken.js';
 //crear una instancia de Router
 const router = Router()
 //definir la ruta para agregar un producto al carrito
-router.post('/agregar',authRequired,agregarProductoCarrito)
+router.post('/carrito/agregar',authRequired,agregarProductoCarrito)
 //definir la ruta para crear un carrito
-router.post('/crear',authRequired,crearCarrito)
-router.post('/vaciar',authRequired,vaciarCarrito)
+router.post('/carrito/crear',authRequired,crearCarrito)
+router.post('/carrito/vaciar',authRequired,vaciarCarrito)
 router.get('/carrito',authRequired,obtenerCarrito)
-router.post('/pay-car',authRequired,pagarCarrito)
+router.post('/carrito/pay-car',authRequired,pagarCarrito)
 //exportar el router
 export default router

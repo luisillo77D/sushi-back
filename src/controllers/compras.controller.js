@@ -1,4 +1,4 @@
-import Compra from '../models/compras.model';
+import Compra from '../models/compras.model.js';
 
 //funcion para obtener todas las compras de un usuario
 export const obtenerCompras = async (req, res) => {
