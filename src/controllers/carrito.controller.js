@@ -113,3 +113,28 @@ export const pagarCarrito = async (req, res) => {
         res.status(500).json({ message: "Error paying carrito", error });
     }
 }
+
+//funcion para actualizar el carrito
+export const actualizarCarrito = async (req, res) => {
+    try {
+        const { idproduct, quantity } = req.body;
+        const carrito = await Carrito.findOne({ user: req.user.id });
+        if (carrito) {
+            const item = carrito.items.find((item) => item.idproduct == idproduct);
+            const product = await Product.findById(idproduct);
+            if (item) {
+                carrito.total -= item.quantity * product.price;
+                item.quantity = quantity;
+                carrito.total += quantity * product.price;
+                await carrito.save();
+                res.status(200).json(carrito);
+            } else {
+                res.status(400).json({ message: "Producto no encontrado en el carrito" });
+            }
+        } else {
+            res.status(400).json({ message: "Carrito no encontrado" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error updating carrito", error });
+    }
+};
