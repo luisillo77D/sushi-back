@@ -63,7 +63,7 @@
 - Parámetros: Un objeto JSON que contiene los detalles del elemento a agregayr (ID del producto y cantidad).
 - Respuesta: Un objeto JSON que indica si el elemento se agregó correctamente al carrito.
 
-#### PUT /api/cart/{id}
+#### PUT /api/cart/
 - Descripción: Actualizar la cantidad de un elemento en el carrito de compras del usuario autenticado.
 - Parámetros: El ID del elemento en el carrito de compras en la ruta de URL y un objeto JSON que contiene la nueva cantidad.
 - Respuesta: Un objeto JSON que indica si la cantidad del elemento se actualizó correctamente en el carrito.
